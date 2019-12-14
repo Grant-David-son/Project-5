@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -124,8 +125,8 @@ public class Main extends Application {
 		kid.add(l2);
 
 		drop = new ComboBox<String>();
-		menu = new ArrayList<String>();
-		menu.add("WEST");
+		menu = con.getAll();
+		Collections.sort(menu, Collections.reverseOrder());
 		for(String s: menu){
 			drop.getItems().add(s);
 		}

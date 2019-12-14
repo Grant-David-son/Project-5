@@ -34,7 +34,11 @@ public class Controller {
 		}
 		return ret;
 	}
-
+	
+	public ArrayList<String> getAll(){
+		return stations;
+	}
+	
 	public int[] getHDs(String station){
 		int[] ret = new int[]{0,0,0,0,0};
 		for(String s: stations){
