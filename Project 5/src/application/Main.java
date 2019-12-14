@@ -251,7 +251,7 @@ public class Main extends Application {
 				a10.setText(a10.getText()+ "\n"+ "Add Station clicked, Checking: " + statA.getText());
 				String s = statA.getText();
 				s = s.toUpperCase();
-				if(s.length() == 4){
+				if(s.length() == 4 && !drop.getItems().contains(s)){
 					menu.add(s);
 				drop.getItems().add(s);
 				a10.setText(a10.getText()+ "\n"+ "" + s + " added.");
