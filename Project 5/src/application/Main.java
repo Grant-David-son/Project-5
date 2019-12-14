@@ -220,9 +220,6 @@ public class Main extends Application {
 				a10.setText(a10.getText()+ "\n"+ "Add Station clicked, Checking: " + statA.getText());
 				String s = statA.getText();
 				s = s.toUpperCase();
-				if(s.length()>4){
-					a10.setText(a10.getText()+ "\n"+ s +" is an invalid station name, station was not added.");
-				}
 				if(s.length() == 4){
 					menu.add(s);
 				drop.getItems().add(s);
