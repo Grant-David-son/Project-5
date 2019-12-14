@@ -45,6 +45,7 @@ public class Main extends Application {
 	public ArrayList<String> stationshd;
 	public TextArea a10;
 	private Button tog;
+	private Boolean decend;
 
 
 	@Override
@@ -127,7 +128,7 @@ public class Main extends Application {
 
 		drop = new ComboBox<String>();
 		menu = con.getAll();
-		boolean decend = true;
+		decend = true;
 		Collections.sort(menu, Collections.reverseOrder());
 		for(String s: menu){
 			drop.getItems().add(s);
@@ -142,18 +143,28 @@ public class Main extends Application {
 		tog.setLayoutY(410);
 		tog.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e){
-				a10.setText(a10.getText()+ "\n"+ "Now sorted by: Acending");
-				a10.setText(a10.getText()+ "\n"+ "Now sorted by: Decending");
+				drop.getItems().clear();
+				if(!decend){
+					Collections.sort(menu, Collections.reverseOrder());
+					a10.setText(a10.getText()+ "\n"+ "Now sorted by: Acending");
+				}else{
+					Collections.sort(menu);
+					a10.setText(a10.getText()+ "\n"+ "Now sorted by: Decending");
+				}
+				decend = !decend;
+				for(String s: menu){
+					drop.getItems().add(s);
+				}
 			}
 		});
 		kid.add(tog);
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 		lab0 = new Label("Distance 0: ");
 		labA0 = new TextField();
 		labA0.setEditable(false);
@@ -252,7 +263,7 @@ public class Main extends Application {
 		});
 		kid.add(stat);
 
-		
+
 
 
 
